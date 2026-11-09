@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Android build
+android/.gradle
+android/app/build
+android/build
+android/.cxx
+android/app/.cxx
+android/local.properties
+android/.idea
+android/.kotlin
+
+# iOS build
+ios/Pods
+ios/build
+ios/.xcode
+
+# Metro
+.metro-health-check*
+
+# Environment & Temp
+.env
+*.pem
+.DS_Store
+

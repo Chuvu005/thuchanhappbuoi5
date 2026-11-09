@@ -1,0 +1,39 @@
+{
+  "rules": {
+    "users": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+    "chats": {
+      "$chatId": {
+        ".read": "auth != null && ($chatId.contains(auth.uid) || data.child('members/' + auth.uid).exists() || !data.exists())",
+        ".write": "auth != null && ($chatId.contains(auth.uid) || newData.child('members/' + auth.uid).exists() || data.child('members/' + auth.uid).exists())",
+        "messages": {
+          ".read": "auth != null",
+          ".write": "auth != null"
+        }
+      }
+    },
+    "userChats": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null"
+      }
+    },
+    "presence": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+    "notifications": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null"
+      }
+    }
+  }
+}
+
